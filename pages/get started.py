@@ -1,4 +1,4 @@
-from streamlit import st 
+import streamlit as st
 
 st.title('Get Started')
 st.write('Welcome to the get started page')
