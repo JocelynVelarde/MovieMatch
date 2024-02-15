@@ -1,6 +1,10 @@
 import streamlit as st
 import pandas as pd
+from api.gsheet_auth import gsheet_auth
 from streamlit_searchbox import st_searchbox
+
+client = gsheet_auth()
+sheet = client.open('MovieMatch Streamlit').worksheet('Hoja 1')
 
 st.title('Movie Selection 🎬')
 st.divider()
@@ -21,9 +25,9 @@ if len(selected_movies) > 3:
     selected_movies = selected_movies[:3]
 
 if st.button('Get Recommendations'):
+    row = [[selected_movies[0], selected_movies[1], selected_movies[2]]]
+    sheet.insert_cols(row, 1)
     st.success('Recommendations are ready!')
-
-
 
 st.divider()
 
