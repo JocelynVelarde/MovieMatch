@@ -13,10 +13,13 @@ st.title('Movie Selection 🎬')
 st.divider()
 st.write('Select 3 movies to get recommendations')
 
-with open('assets/files/moviesdos.txt') as f:
-    text = f.read()
-# Split the string by newline character
-movies = text.split("\n")
+
+with open('assets/files/moviesdos.csv', 'r') as file:
+    movies = file.readlines()
+
+# Remove '\n' characters from each element
+movies = [movie.strip() for movie in movies]
+
 
 selected_movies = st.multiselect(
     label="Select Movies",
