@@ -30,11 +30,11 @@ if len(selected_movies) > 3:
 if st.button('Get Recommendations'):
     row = [[selected_movies[0], selected_movies[1], selected_movies[2]]]
     sheet.insert_cols(row, 1)
-    recommendations = predictor.moviePreds(selected_movies[0], selected_movies[1], selected_movies[2])
-    st.success('Recommendations are ready!')
-
-container = st.container(border=True)
-container.text(recommendations)
+    recommendations = predictor.moviePreds(selected_movies)
+    st.info('Calculating recommendations... 🤔')
+    container = st.container(border=True)
+    container.text(recommendations)
+    
 
 st.divider()
 
