@@ -2,3 +2,4 @@ st-gsheets-connection
 openai
 gspread
 google-auth
+scipy
