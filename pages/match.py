@@ -13,9 +13,10 @@ st.title('Movie Selection 🎬')
 st.divider()
 st.write('Select 3 movies to get recommendations')
 
-df = pd.read_csv('assets/files/moviesdos.txt')
-
-movies = df.tolist()
+with open('assets/files/moviesdos.txt') as f:
+    text = f.read()
+# Split the string by newline character
+movies = text.split("\n")
 
 selected_movies = st.multiselect(
     label="Select Movies",
