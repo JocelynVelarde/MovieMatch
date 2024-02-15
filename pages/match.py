@@ -29,6 +29,9 @@ if st.button('Get Recommendations'):
     sheet.insert_cols(row, 1)
     st.success('Recommendations are ready!')
 
+container = st.container(border=True)
+container.text("The movies display here")
+
 st.divider()
 
 st.page_link("pages/report a bug.py", label="Click this button to Report a bug", icon="🐞")
