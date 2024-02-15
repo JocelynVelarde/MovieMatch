@@ -41,4 +41,5 @@ if st.button("Submit to get feedback about your sentiment"):
     response = ask_gpt(prompt)
     st.write(response)
 
+st.divider()
 st.page_link("pages/report a bug.py", label="Click this button to Report a bug", icon="🐞")
