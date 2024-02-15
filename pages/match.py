@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 from api.gsheet_auth import gsheet_auth
 from api.sentiment_gpt import ask_gpt
+from algorithms.moviesPredictor import predict
+
+predictor = predict()
 
 client = gsheet_auth()
 sheet = client.open('MovieMatch Streamlit').worksheet('Hoja 1')
@@ -27,10 +30,11 @@ if len(selected_movies) > 3:
 if st.button('Get Recommendations'):
     row = [[selected_movies[0], selected_movies[1], selected_movies[2]]]
     sheet.insert_cols(row, 1)
+    recommendations = predictor.moviePreds(selected_movies[0], selected_movies[1], selected_movies[2])
     st.success('Recommendations are ready!')
 
 container = st.container(border=True)
-container.text("The movies display here")
+container.text(recommendations)
 
 st.divider()
 
