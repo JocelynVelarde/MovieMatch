@@ -35,7 +35,7 @@ container.text("The movies display here")
 st.divider()
 
 st.subheader("Tell us how you felt watching the movies 💖")
-prompt = st.text_area("Describe the bug in detail:")
+prompt = st.text_area("We will take this feedback in consideration for future recommendations:")
 
 if st.button("Submit to get feedback about your sentiment"):
     response = ask_gpt(prompt)
