@@ -15,7 +15,7 @@ st.write('Select 3 movies to get recommendations')
 
 df = pd.read_csv('assets/files/moviesdos.csv')
 
-movies = df['title'].tolist()
+movies = df.tolist()
 
 selected_movies = st.multiselect(
     label="Select Movies",
