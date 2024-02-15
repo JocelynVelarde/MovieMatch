@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from api.gsheet_auth import gsheet_auth
-from streamlit_searchbox import st_searchbox
+from api.sentiment_gpt import ask_gpt
 
 client = gsheet_auth()
 sheet = client.open('MovieMatch Streamlit').worksheet('Hoja 1')
@@ -33,5 +33,12 @@ container = st.container(border=True)
 container.text("The movies display here")
 
 st.divider()
+
+st.subheader("Tell us how you felt watching the movies 💖")
+prompt = st.text_area("Describe the bug in detail:")
+
+if st.button("Submit to get feedback about your sentiment"):
+    response = ask_gpt(prompt)
+    st.write(response)
 
 st.page_link("pages/report a bug.py", label="Click this button to Report a bug", icon="🐞")
