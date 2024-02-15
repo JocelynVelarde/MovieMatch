@@ -13,7 +13,7 @@ st.title('Movie Selection 🎬')
 st.divider()
 st.write('Select 3 movies to get recommendations')
 
-df = pd.read_csv('assets/files/moviesdos.csv')
+df = pd.read_csv('assets/files/moviesdos.txt')
 
 movies = df.tolist()
 
